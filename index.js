@@ -5,10 +5,10 @@ const router = require('./controlproductos')
 app.use(express.json())
 app.use(router)
 
-const port = 3000
+const PORT = 3000
 app.use(errorHandler)
 
-app.listen(port, ()=>{
-    console.log("Servidor corriendo en el puerto "+port)
+app.listen(PORT, ()=>{
+    console.log("Servidor corriendo en el puerto "+PORT)
 }
 )
