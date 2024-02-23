@@ -9,7 +9,7 @@ const router = express.Router()
 app.use(express.json());
 
 // Ruta para obtener todos los usuarios
-router.get('/', async (req, res) => {
+router.get('/integrantes', async (req, res) => {
     try {
         const usuarios = await obtenerIntegrantes();
         res.json(usuarios);
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 });
 
 // Ruta para crear un nuevo usuario
-router.post('/', async (req, res) => {
+router.post('/integrantes', async (req, res) => {
     const { nombre, apellido } = req.body;
     if (!nombre || !apellido) {
         return res.status(400).json({ error: 'Nombre y correo son obligatorios' });

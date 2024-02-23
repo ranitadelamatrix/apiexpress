@@ -3,7 +3,7 @@ const app = express()
 const errorHandler = require('./errorHandler')
 const router = require('./controlproductos')
 app.use(express.json())
-app.use('/integrantes', router)
+app.use(router)
 
 const port = 3000
 app.use(errorHandler)
