@@ -5,7 +5,7 @@ const { Pool } = require('pg');
 const pool = new Pool({
     user: 'familia_user',
     host: 'dpg-cncd85qcn0vc73f0ukvg-a.oregon-postgres.render.com',
-    database: 'familia',
+    database: 'familia', ssl: true,
     password: 'Dw0bKk9p3HMUYopf62AIDlGdZLlbcuTS',
     port: 5432,
 });
