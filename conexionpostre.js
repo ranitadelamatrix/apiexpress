@@ -12,7 +12,7 @@ const pool = new Pool({
 pool.connect((err,client,release)=>{
     if(err){
     return console.error("el erro es "+ err)
-    }console.log("conexiono exitosa")
+    }console.log("conexiono exitosaaa")
 })
 
 // Función para obtener todos los usuarios
