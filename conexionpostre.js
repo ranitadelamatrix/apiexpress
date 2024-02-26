@@ -28,6 +28,20 @@ async function obtenerIntegrantes() {
     }
 }
 
+async function obtenerintegrantesId(id){
+    try{
+        const client = await pool.connect()
+        const result = await client.query('select * from usuarios where id = $1',[id])
+        console.log(result.rows[0])
+        client.release()
+        return result.rows[0]
+    }catch(error){
+        console.error("error al devolver integrantes", error)
+        throw error
+    }
+    
+}
+
 // Función para crear un nuevo usuario
 async function crearIntegrantes(nombre, apellido) {
     try {
@@ -44,4 +58,5 @@ async function crearIntegrantes(nombre, apellido) {
 module.exports = {
     obtenerIntegrantes,
     crearIntegrantes,
+    obtenerintegrantesId
 };
