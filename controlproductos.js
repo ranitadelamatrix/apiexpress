@@ -39,12 +39,12 @@ router.get("/:id",async (req,res)=>{
 // Ruta para crear un nuevo usuario
 router.post('/integrantes', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*')
-    const { nombre, apellido } = req.body;
-    if (!nombre || !apellido) {
-        return res.status(400).json({ error: 'Nombre y correo son obligatorios' });
+    const { nombre,edad, email } = req.body;
+    if (!nombre ||!edad || !email) {
+        return res.status(400).json({ error: 'Nombre, edad y correo son obligatorios' });
     }
     try {
-        const nuevoUsuario = await crearIntegrantes(nombre, apellido);
+        const nuevoUsuario = await crearIntegrantes(nombre,edad, email);
         res.status(201).json(nuevoUsuario);
     } catch (error) {
         res.status(500).json({ error: 'Error al crear usuario' });

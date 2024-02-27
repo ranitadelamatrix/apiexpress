@@ -43,10 +43,10 @@ async function obtenerintegrantesId(id){
 }
 
 // Función para crear un nuevo usuario
-async function crearIntegrantes(nombre, apellido) {
+async function crearIntegrantes(nombre,edad,  email) {
     try {
         const client = await pool.connect();
-        const result = await client.query('INSERT INTO usuarios (nombre, email) VALUES ($1, $2) RETURNING *', [nombre, email]);
+        const result = await client.query('INSERT INTO usuarios (nombre, edad,email) VALUES ($1, $2, $3) RETURNING *', [nombre, edad, email]);
         client.release();
         return result.rows[0];
     } catch (error) {
