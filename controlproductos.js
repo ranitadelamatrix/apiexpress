@@ -39,6 +39,8 @@ router.get("/:id",async (req,res)=>{
 // Ruta para crear un nuevo usuario
 router.post('/integrantes', async (req, res) => {
     res.header('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Permitir métodos HTTP específicos
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Permitir encabezados específicos
     const { nombre,edad, email } = req.body;
     if (!nombre ||!edad || !email) {
         return res.status(400).json({ error: 'Nombre, edad y correo son obligatorios' });
