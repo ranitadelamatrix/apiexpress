@@ -2,8 +2,11 @@ const express = require('express')
 const app = express()
 const errorHandler = require('./errorHandler')
 const router = require('./controlproductos')
+const cors = require( 'cors' )
 app.use(express.json())
 app.use(router)
+app.use(cors())
+
 
 const PORT = 3000
 app.use(errorHandler)
